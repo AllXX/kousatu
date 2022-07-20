@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block content %}
+<p>&nbsp;</p>
+<h1><span style="background-color:#00FF00;">{{ article.title }}</span></h1>
+<div class='text-right'>
+    <a href='{% url "app:new_com" article.id %}' class='btn btn-outline-primary'>新規コメント</a>
+    </div>
+    <p>&nbsp;</p>
+     {{ article.message }}
+     <p>&nbsp;</p>
+
+    {% for comment in comments %}
+    <div style="margin: 10px 20px 0 0; background-color: rgba(0, 0, 0, 0.2); padding: 8px 16px; border-radius: 15px; border: 1px solid black;">
+        
+        <p style="font-size: 18px; color: black; ">
+            <span style="color: green; font-weight: bold;">{{ comment.id }}. 名無しがお送りします</span>
+            <br>
+            {{comment.message}}</p>
+        <div style="text-align: end;">
+        <span >{{ comment.pub_data }}</span>
+        </div>
+    </div>
+     {% endfor %}
+     
+{% endblock %}

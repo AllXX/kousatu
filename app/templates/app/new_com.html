@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <h1>{{ message }}</h1>
+
+    <form action='{% url "app:create_com" %}' method='post' class='form'>
+        {% csrf_token %}
+       <!--{% bootstrap_form commentForm layout='horizontal' %}
+       -->
+       
+      
+        <label style="font-size: 36px; font-weight: bold; margin-top: 30px;">書き込むスレッド</label>
+        <br>
+        <span style="font-size: 32px; font-weight: semi-bold;">{{ article.title }} </span>
+        <br>
+       <label for="comment" style="font-size: 36px; font-weight: bold; margin-top: 30px;">コメントを入力</label>
+       <br>
+       <textarea placeholder="コメントを入力してください" cols="100" rows="10"
+       name="message"></textarea>
+  <br>
+  <input type="text" value={{article.id}} name="title" readonly hidden />
+        <button type='submit' class='btn btn-outline-primary'>作成する</button>
+        <!-- <a href='{{request.META.HTTP_REFERER}}' class='btn btn-outline-secondary'>戻る</a> -->
+        <a href='{% url "app:detail"  article.id %}'>戻る</a>
+    </form>
+{% endblock %}

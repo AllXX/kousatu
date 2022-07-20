@@ -1,0 +1,1 @@
+views.createで本当はdetail画面に移り変わってからではなく直接indexに画面遷移をしたかった。
