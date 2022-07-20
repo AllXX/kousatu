@@ -1,6 +1,5 @@
 .vscode/
 venv/
 db.sqlite3
-local_setting.py
 /**/__init__.py
 /**/__pycache__/
