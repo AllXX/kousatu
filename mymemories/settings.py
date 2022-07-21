@@ -137,7 +137,7 @@ STATIC_ROOT = 'static'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#herokuへの設定の追加
+#追加　herokuへの設定
 DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO','https')
@@ -156,3 +156,5 @@ except ImportError:
 STATIC_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+django_heroku.settings(locals())
